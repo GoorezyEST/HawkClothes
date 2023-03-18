@@ -1,7 +1,6 @@
 .home_section {
   display: flex;
   flex-direction: column;
-  height: 100svh;
   height: 100vh;
   overflow: hidden;
 }

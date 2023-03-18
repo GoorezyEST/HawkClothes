@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 function SingleProduct({ url, name, price, colors }) {
   const [actualImg, setActualImg] = useState(url[0]);
+  const [showPopUp, setShowPopUp] = useState(false);
 
   function handleImgChange(e) {
     let colorPicked = e.target.style.backgroundColor;
@@ -23,6 +24,15 @@ function SingleProduct({ url, name, price, colors }) {
 
   return (
     <section className="singleProduct_section">
+      <div className={showPopUp ? "pop_up" : "hidden"}>
+        <div>
+          <p>
+            Currently, to buy any of our products you can contact us at WhatsApp
+            (555) 123-4567 or come to our store at 1234 Main Street, Anytown.
+          </p>
+          <button onClick={() => setShowPopUp(false)}>Got it</button>
+        </div>
+      </div>
       <Nav />
       <div className="singleProduct_main">
         <div className="singleProduct_content">
@@ -45,7 +55,9 @@ function SingleProduct({ url, name, price, colors }) {
               </div>
             </div>
             <div className="btnsContainer">
-              <button className="contactBtn">I'm interested</button>
+              <button className="contactBtn" onClick={() => setShowPopUp(true)}>
+                I'm interested
+              </button>
               <Link to="/products" className="returnBtn">
                 Go back
               </Link>
