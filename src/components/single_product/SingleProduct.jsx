@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function SingleProduct({ url, name, price, colors }) {
   const [actualImg, setActualImg] = useState(url[0]);
   const [showPopUp, setShowPopUp] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
 
   function handleImgChange(e) {
     let colorPicked = e.target.style.backgroundColor;
@@ -20,6 +21,11 @@ function SingleProduct({ url, name, price, colors }) {
     } else {
       return;
     }
+    setImageLoading(true);
+  }
+
+  function handleImgLoad() {
+    setImageLoading(false);
   }
 
   return (
@@ -36,7 +42,17 @@ function SingleProduct({ url, name, price, colors }) {
       <Nav />
       <div className="singleProduct_main">
         <div className="singleProduct_content">
-          <img src={actualImg} alt="Product" />
+          {imageLoading && (
+            <div className="singleproduct_spinner_container">
+              <div className="singleproduct_spinner"></div>
+            </div>
+          )}
+          <img
+            src={actualImg}
+            alt="Product"
+            onLoad={handleImgLoad}
+            className={imageLoading ? "hidden" : "null"}
+          />
           <div className="singleProduct_info">
             <div className="infoContainer">
               <h3>{name}</h3>

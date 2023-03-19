@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import Nav from "../navbar/Nav";
-import Image from "../../assets/hawkClothesFullLogo.svg";
 import { Link } from "react-router-dom";
 
 function Home() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <section className="home_section">
       <Nav />
@@ -16,7 +17,17 @@ function Home() {
             Our products
           </Link>
         </div>
-        <img src={Image} alt="Hawk Clothes logotype" />
+        {loading && (
+          <div className="home_spinner_container">
+            <div className="home_spinner"></div>
+          </div>
+        )}
+        <img
+          src="https://svgur.com/i/rFs.svg"
+          alt="Hawk Clothes logotype"
+          onLoad={() => setLoading(false)}
+          className={loading ? "hidden" : "null"}
+        />
       </div>
     </section>
   );

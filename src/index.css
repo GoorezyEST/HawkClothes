@@ -4,13 +4,3 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-:root {
-  --safe-area-inset-bottom: constant(safe-area-inset-bottom, 0px);
-}
-
-@media screen and (max-width: 767px) {
-  :root {
-    --safe-area-inset-bottom: env(safe-area-inset-bottom);
-  }
-}
