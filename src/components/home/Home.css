@@ -87,3 +87,13 @@
     text-align: center;
   }
 }
+
+@media screen and (orientation: landscape) and (max-width: 900px) {
+  .home_section {
+    flex-direction: column;
+    height: max-content;
+  }
+  .home_content {
+    padding-bottom: 1.5rem;
+  }
+}

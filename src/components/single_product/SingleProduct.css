@@ -229,3 +229,12 @@
     height: 225px;
   }
 }
+
+@media screen and (orientation: landscape) and (max-width: 900px) {
+  .singleProduct_section {
+    height: max-content;
+  }
+  .pop_up {
+    position: fixed;
+  }
+}

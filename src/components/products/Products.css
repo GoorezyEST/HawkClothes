@@ -84,3 +84,9 @@
     padding: 1.5rem;
   }
 }
+
+@media screen and (orientation: landscape) and (max-width: 900px) {
+  .products_section {
+    height: max-content;
+  }
+}
